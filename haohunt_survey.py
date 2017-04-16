@@ -42,8 +42,10 @@ class AnswerAnalysis(object):
         print "\n\n"
         print self.poor_customer_service_analysis()
         print "\n\n"
+        print "What is your description of a good place of accommodation?"
         print self.description_analysis()
         print "\n\n"
+        print "How much would you be willing to pay for a place such as you have described above?"
         print self.willing_to_pay_analysis()
         print "\n\n"
         print self.willing_to_pay_average()
@@ -96,6 +98,6 @@ class AnswerAnalysis(object):
         self.willing_to_pay_count = self.frame["number_47419688"].value_counts()
         return self.willing_to_pay_count
     def willing_to_pay_average(self):
-        self.willing_to_pay_average = frame["number_47419688"].mean()
+        self.willing_to_pay_average = self.frame["number_47419688"].mean()
         return self.willing_to_pay_average
     
