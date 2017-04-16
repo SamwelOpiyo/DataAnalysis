@@ -1,3 +1,4 @@
+#Analysis of form found at 
 import requests
 import json
 import pandas as pd
@@ -28,6 +29,26 @@ class AnswerAnalysis(object):
         print "What major problems have you encountered while looking for accommodation or while staying in your place of accommodation?"
         print self.user_problems()
         print "\n\n"
+        print "Might the following be some of the problems you have encountered which are related to accommodation!"
+        print self.ease_booking_analysis()
+        print "\n\n"
+        print self.long_queues_analysis()
+        print "\n\n"
+        print self.late_bookings_analysis()
+        print"\n\n"
+        print self.poor_services_analysis()
+        print "\n\n"
+        print self.uncondusive_environment_analysis()
+        print "\n\n"
+        print self.poor_customer_service_analysis()
+        print "\n\n"
+        print self.description_analysis()
+        print "\n\n"
+        print self.willing_to_pay_analysis()
+        print "\n\n"
+        print self.willing_to_pay_average()
+        print "\n\n"
+
 
     def email_analysis(self):
         self.email_count = self.frame["email_47420161"].value_counts()
@@ -49,33 +70,32 @@ class AnswerAnalysis(object):
         return self.accommodation_fees_persem_count
     def user_problems(self):
         self.problems_byuser_count = self.frame["textfield_47419084"].value_counts()
-        return self.problems_byuser_count 
-"""
-    problems_ease_of_booking_count = frame["list_47419192_choice_60077092"].value_counts()
-    problems_long_queues_count = frame["list_47419192_choice_60077093"].value_counts()
-    problems_late_bookings_count = frame["list_47419192_choice_60077094"].value_counts()
-    problems_poor_services_count = frame["list_47419192_choice_60077095"].value_counts()
-    problems_uncondusive_environment_count = frame["list_47419192_choice_60077096"].value_counts()
-    problems_poor_customer_service = frame["list_47419192_choice_60078445"].value_counts()
-    description_good_place_of_accommodation_count = frame["textfield_47419458"].value_counts()
-    willing_to_pay_count = frame["number_47419688"].value_counts()
-    willing_to_pay_average = frame["number_47419688"].mean()
-    return email_count,
-            student_count,
-            university_count,
-            distance_from_university_count,
-            people_stay_with_count,
-            accommodation_fees_persem_count,
-            problems_byuser_count,
-            problems_ease_of_booking_count,
-            problems_long_queues_count,
-            problems_late_bookings_count,
-            problems_poor_services_count,
-            problems_uncondusive_environment_count,
-            problems_poor_customer_service,
-            description_good_place_of_accommodation_count,
-            willing_to_pay_count,
-            willing_to_pay_average
-
-print answer_analysis()
-"""
+        return self.problems_byuser_count
+    def ease_booking_analysis(self):
+        self.problems_ease_of_booking_count = self.frame["list_47419192_choice_60077092"].value_counts()
+        return self.problems_ease_of_booking_count
+    def long_queues_analysis(self):
+        self.problems_long_queues_count = self.frame["list_47419192_choice_60077093"].value_counts()
+        return self.problems_long_queues_count
+    def late_bookings_analysis(self):
+        self.problems_late_bookings_count = self.frame["list_47419192_choice_60077094"].value_counts()
+        return self.problems_late_bookings_count
+    def poor_services_analysis(self):
+        self.problems_poor_services_count = self.frame["list_47419192_choice_60077095"].value_counts()
+        return self.problems_poor_services_count
+    def uncondusive_environment_analysis(self):
+        self.problems_uncondusive_environment_count = self.frame["list_47419192_choice_60077096"].value_counts()
+        return self.problems_uncondusive_environment_count
+    def poor_customer_service_analysis(self):
+        self.problems_poor_customer_service = self.frame["list_47419192_choice_60078445"].value_counts()
+        return self.problems_poor_customer_service
+    def description_analysis(self):
+        self.description_good_place_of_accommodation_count = self.frame["textfield_47419458"].value_counts()
+        return self.description_good_place_of_accommodation_count
+    def willing_to_pay_analysis(self):
+        self.willing_to_pay_count = self.frame["number_47419688"].value_counts()
+        return self.willing_to_pay_count
+    def willing_to_pay_average(self):
+        self.willing_to_pay_average = frame["number_47419688"].mean()
+        return self.willing_to_pay_average
+    
